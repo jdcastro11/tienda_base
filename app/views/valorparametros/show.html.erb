@@ -1,0 +1,32 @@
+
+<a href="/valp/<%= @valorparametro.parametro_id %>" class="btn btn-info btn-sm">Regresar</a>
+
+<%= link_to 'Modificar', edit_valorparametro_path(@valorparametro),class:"btn btn-success btn-sm" %> 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @valorparametro.valor %>
+</p>
+
+<p>
+  <strong>Estadovalorparametro:</strong>
+  <%= @valorparametro.estadovalorparametro %>
+</p>
+
+<p>
+  <strong>Orden:</strong>
+  <%= @valorparametro.orden %>
+</p>
+
+<p>
+  <strong>Eliminado:</strong>
+  <%= @valorparametro.eliminado %>
+</p>
+
+<p>
+  <strong>Idpadre:</strong>
+  <%= @valorparametro.idpadre %>
+</p>
+
+

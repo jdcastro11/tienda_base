@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parametros</h1>
+
+<table>
+  <thead>
+    <tr>
+     <th>Id</th>
+      <th>Atributo</th>
+      <th>Descripcion</th>
+      <th>Estadoparametro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parametros.each do |parametro| %>
+      <tr>
+        <td><%= parametro.id %></td>
+        <td><%= parametro.atributo %></td>
+        <td><%= parametro.descripcion %></td>
+        <td><%= parametro.estadoparametro %></td>
+        <td><%= link_to 'Show', parametro %></td>
+        <td><%= link_to 'Edit', edit_parametro_path(parametro) %></td>
+        <td><%= link_to 'Destroy', parametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parametro', new_parametro_path %>

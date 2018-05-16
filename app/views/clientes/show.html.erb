@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombres:</strong>
+  <%= @cliente.nombres %>
+</p>
+
+<p>
+  <strong>Apellidos:</strong>
+  <%= @cliente.apellidos %>
+</p>
+
+<p>
+  <strong>Identificacion:</strong>
+  <%= @cliente.identificacion %>
+</p>
+
+<p>
+  <strong>Idtipoidentificacion:</strong>
+  <%= @cliente.idtipoidentificacion %>
+</p>
+
+<p>
+  <strong>Razonsocial:</strong>
+  <%= @cliente.razonSocial %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @cliente.correo %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @cliente.direccion %>
+</p>
+
+<p>
+  <strong>Telefonos:</strong>
+  <%= @cliente.telefonos %>
+</p>
+
+<p>
+  <strong>Idtipocliente:</strong>
+  <%= @cliente.idtipocliente %>
+</p>
+
+<p>
+  <strong>Idcategoriacliente:</strong>
+  <%= @cliente.idcategoriacliente %>
+</p>
+
+<p>
+  <strong>Idestado:</strong>
+  <%= @cliente.idestado %>
+</p>
+
+<p>
+  <strong>Idgenero:</strong>
+  <%= @cliente.idgenero %>
+</p>
+
+<p>
+  <strong>Eliminado:</strong>
+  <%= @cliente.eliminado %>
+</p>
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

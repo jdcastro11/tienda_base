@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: productos
+#
+#  id                  :bigint(8)        not null, primary key
+#  nombre              :string(100)
+#  descipcion          :string(300)
+#  ref                 :string(50)
+#  precio              :decimal(6, 2)
+#  idtipoproducto      :integer
+#  idcategoriaproducto :integer
+#  idestadoproducto    :integer
+#  stock               :integer          default(0)
+#  imagen              :string(100)
+#  eliminado           :boolean          default(FALSE)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

@@ -1,0 +1,82 @@
+<%= form_with(model: cliente, local: true) do |form| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombres %>
+    <%= form.text_field :nombres, id: :cliente_nombres %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellidos %>
+    <%= form.text_field :apellidos, id: :cliente_apellidos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :identificacion %>
+    <%= form.text_field :identificacion, id: :cliente_identificacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idtipoidentificacion %>
+    <%= form.number_field :idtipoidentificacion, id: :cliente_idtipoidentificacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :razonSocial %>
+    <%= form.text_field :razonSocial, id: :cliente_razonSocial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo %>
+    <%= form.text_field :correo, id: :cliente_correo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :cliente_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefonos %>
+    <%= form.text_field :telefonos, id: :cliente_telefonos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idtipocliente %>
+    <%= form.number_field :idtipocliente, id: :cliente_idtipocliente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idcategoriacliente %>
+    <%= form.number_field :idcategoriacliente, id: :cliente_idcategoriacliente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idestado %>
+    <%= form.number_field :idestado, id: :cliente_idestado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idgenero %>
+    <%= form.number_field :idgenero, id: :cliente_idgenero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eliminado %>
+    <%= form.check_box :eliminado, id: :cliente_eliminado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

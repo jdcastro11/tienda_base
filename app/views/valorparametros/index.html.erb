@@ -1,0 +1,40 @@
+<h4>Valorparametros</h4>
+<%= link_to 'New Valorparametro', new_valorparametro_path %>
+<p id="notice"><%= notice %></p>
+<table class="tabla">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>IdParametro</th>
+      <th>Valor</th>
+      <th>Estadovalorparametro</th>
+      <th>Orden</th>
+      <th>Eliminado</th>
+      <th>Idpadre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valorparametros.each do |valorparametro| %>
+      <tr>
+       <td><%= valorparametro.id %></td>
+        <td><%= valorparametro.parametro_id %></td>
+        <td><%= valorparametro.valor %></td>
+        <td><%= valorparametro.estadovalorparametro %></td>
+        <td><%= valorparametro.orden %></td>
+        <td><%= valorparametro.eliminado %></td>
+        <td><%= valorparametro.idpadre %></td>
+        <td><%= link_to 'Show', valorparametro %></td>
+        <td><%= link_to 'Edit', edit_valorparametro_path(valorparametro) %></td>
+        <td><%= link_to 'Destroy', valorparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div class="digg_pagination"> 
+  <%= will_paginate @valorparametros, :container => false %>
+</div>
+<br>
+

@@ -1,0 +1,45 @@
+<a href="/valp/<%= @idvp %>" class="btn btn-info btn-sm mb-3">Regresar</a>
+<a href="#" onclick="document.getElementById('frm_valp').submit()" class="btn btn-primary btn-sm mb-3">Guardar</a>
+<%= form_with(model: valorparametro, local: true,id:"frm_valp") do |form| %>
+ 
+  <% if valorparametro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valorparametro.errors.count, "error") %> prohibited this valorparametro from being saved:</h2>
+
+      <ul>
+      <% valorparametro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.text_field :valor, id: :valorparametro_valor %>
+  </div>
+ <div class="field">
+    <%= form.label :parametro_id %>
+    <%= form.text_field :parametro_id, id: :valorparametro_parametro_id %>
+  </div>
+  <div class="field">
+    <%= form.label :estadovalorparametro %>
+    <%= form.text_field :estadovalorparametro, id: :valorparametro_estadovalorparametro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orden %>
+    <%= form.text_field :orden, id: :valorparametro_orden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eliminado %>
+    <%= form.check_box :eliminado, id: :valorparametro_eliminado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idpadre %>
+    <%= form.number_field :idpadre, id: :valorparametro_idpadre %>
+  </div>
+
+<% end %>

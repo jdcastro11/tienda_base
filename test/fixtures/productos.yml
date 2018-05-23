@@ -4,9 +4,9 @@
 #
 #  id                  :bigint(8)        not null, primary key
 #  nombre              :string(100)
-#  descipcion          :string(300)
+#  descripcion         :string(300)
 #  ref                 :string(50)
-#  precio              :decimal(6, 2)
+#  precio              :decimal(15, 2)
 #  idtipoproducto      :integer
 #  idcategoriaproducto :integer
 #  idestadoproducto    :integer

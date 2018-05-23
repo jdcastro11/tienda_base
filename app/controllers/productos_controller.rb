@@ -53,7 +53,21 @@ class ProductosController < ApplicationController
     @producto = Producto.new
   end
   def listar
-   @productos=Producto.all
+    @productos=Producto.all
+    @productosExt= @productos.map do |p|
+      {
+        "id"           => p.id,
+        "nombre"       => p.nombre,
+        "descripcion"  => p.descripcion,    
+        "ref"          => p.ref,          
+        "tipo"         => TraerValorParametro(p.idtipoproducto),
+        "categoria"    => TraerValorParametro(p.idcategoriaproducto),
+        "estado"       => TraerValorParametro(p.idestadoproducto),
+        "precio"        => p.precio,
+        "stock"        => p.stock,
+        "imagen"       => p.imagen
+      }
+    end
   end
   # GET /productos/1/edit
   def edit
@@ -107,6 +121,11 @@ class ProductosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :descipcion, :ref, :precio, :idtipoproducto, :idcategoriaproducto, :idestadoproducto, :stock, :imagen, :eliminado)
+      params.require(:producto).permit(:nombre, :descripcion, :ref, :precio, :idtipoproducto, :idcategoriaproducto, :idestadoproducto, :stock, :imagen, :eliminado)
+    end
+
+    private
+    def prodExt(productos)
+      # pendiente
     end
 end

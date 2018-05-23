@@ -14,7 +14,7 @@
 #
 
 class Valorparametro < ApplicationRecord
-    belongs_to :parametro
+    belongs_to   :parametro
 
     def self.search(term, page)
         if term

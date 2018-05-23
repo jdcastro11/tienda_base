@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Productos</h1>
+
+<table>
+  <thead>
+    <tr>
+       <th>ID</th>
+      <th>Nombre</th>
+      <th>Descipcion</th>
+      <th>Ref</th>
+      <th>Precio</th>
+      <th>Idtipoproducto</th>
+      <th>Idcategoriaproducto</th>
+      <th>Idestadoproducto</th>
+      <th>Stock</th>
+      <th>Imagen</th>
+      <th>Eliminado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.id %></td>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.descipcion %></td>
+        <td><%= producto.ref %></td>
+        <td><%= producto.precio %></td>
+        <td><%= producto.idtipoproducto %></td>
+        <td><%= producto.idcategoriaproducto %></td>
+        <td><%= producto.idestadoproducto %></td>
+        <td><%= producto.stock %></td>
+        <td><%= producto.imagen %></td>
+        <td><%= producto.eliminado %></td>
+        <td><%= link_to 'Show', producto %></td>
+        <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto', new_producto_path %>

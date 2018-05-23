@@ -4,7 +4,27 @@
 	font-family: 'Galada', cursive;
 	color:#0069D9
 }
+img{
+	width: 200px;
+    height: 200px;
+}
+.ancho{
 
+	width: 15em;
+}
+.t2{
+   font-size: 11px;
+}
+.ancho1{
+	width: 800px;
+
+}
+.contenedor{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+ 
+ }
 .my-auto{
 	
  margin-top: auto !important;

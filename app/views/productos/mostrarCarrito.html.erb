@@ -1,0 +1,26 @@
+
+<%if not @micarrito.empty? %>
+      <table class="table mt-3">
+	       <tr>
+	           <th scope="col">Id</th>
+		       <th scope="col">Nombre</th>
+		       <th scope="col">Cant</th>
+		       <th scope="col">Precio</th>
+		       <th scope="col">  </th>
+	       </tr>
+      
+	     <% @micarrito.each_with_index do |car, index| %>               
+			 <tr>
+			      <td><%= car['id'] %></td>
+			      <td><%= car['nombre'] %></td>
+			      <td><%= car['cant'] %></td>
+			      <td><%= car['precio'] %></td>
+			      <td><a href="/productos/eliminar?in=<%=index %>"><i class='fa fa-times-circle'></i></a> </td>
+		    </tr>		
+          <% end %>  	      
+      </table>
+ <%else%>
+  <h4>Carrito está vació</h4>
+ <%end%>
+
+

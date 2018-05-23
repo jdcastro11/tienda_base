@@ -9,6 +9,7 @@
 #  eliminado   :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  options_id  :bigint(8)
 #
 
 require 'test_helper'

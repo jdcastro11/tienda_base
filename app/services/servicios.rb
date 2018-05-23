@@ -47,8 +47,7 @@ module Servicios
                        and op.estadoopcion='A'
                        and role_option_operations.idoperacion=42
                        and op.eshoja=?",true)                              
-           puts "res="
-                       pp(res)
+         
            resul=res.map(&:controller)
            if resul.empty?
              return false 

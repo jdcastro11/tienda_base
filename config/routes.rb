@@ -15,8 +15,13 @@ Rails.application.routes.draw do
   resources :users
   resources :clientes
   get 'prueba/index'
+
   get '/valp/:id', to: "valorparametros#index"
   get '/valp/:id/new', to:'valorparametros#new'
- 
+  post '/productos/agregar', to:'productos#agregarCarrito' 
+  get '/productos/mostrar', to:'productos#mostrarCarrito'
+  get '/productos/eliminar', to:'productos#eliminarDelCarrito'
+  get '/productos/listar', to:'productos#listar'
+  resources :productos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

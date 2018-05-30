@@ -33,7 +33,7 @@ class SeguridadController < ApplicationController
          session[:usuario]=""
         session[:idusuario]=""
         session[:idrol]=""	  
-         redirect_to "/login"
+         redirect_to "/productos"
   end
  
  end

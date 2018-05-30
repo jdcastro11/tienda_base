@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empleados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Identificacion</th>
+      <th>Tipo Identif</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Telefonos</th>
+      <th>Correo</th>
+      <th>Direccion</th>
+      <th>Genero</th>
+      <th>Cargo</th>
+      <th>Idarea</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empleados.each do |empleado| %>
+      <tr>
+        <td><%= empleado.id %></td>
+        <td><%= empleado.identificacion %></td>
+        <td><%= empleado.idtipoidentificacion %></td>
+        <td><%= empleado.nombres %></td>
+        <td><%= empleado.apellidos %></td>
+        <td><%= empleado.telefonos %></td>
+        <td><%= empleado.correo %></td>
+        <td><%= empleado.direccion %></td>
+        <td><%= empleado.idgenero %></td>
+        <td><%= empleado.idcargo %></td>
+        <td><%= empleado.idarea %></td>
+        <td><%= empleado.idestadoemp %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empleado', new_empleado_path %>

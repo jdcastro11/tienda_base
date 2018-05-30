@@ -6,7 +6,8 @@ class ValorparametrosController < ApplicationController
   def index
     # @valorparametros = Valorparametro.all
     @valorparametros = Valorparametro.search(params[:term], params[:page]).where("parametro_id = ?",params[:id])
-    @idvp=params[:id]
+    @idp=params[:id]
+    pp("idp=",@idp)
     render layout: "layout_simple", template: "valorparametros/listar"
   end
 
@@ -15,19 +16,25 @@ class ValorparametrosController < ApplicationController
   def show
    
     render layout: "layout_simple"
+    @swope=0
   end
 
   # GET /valorparametros/new
+ 
   def new
     @valorparametro = Valorparametro.new
-    @idvp=params[:id]
+    @idp=params[:id]
+    @swope=0      
     render layout: "layout_simple"
+
   end
 
   # GET /valorparametros/1/edit
-  def edit
-    @idvp=params[:id]
+  def edit 
+    @idp=params[:idp]
+    @swope=1;
     render layout: "layout_simple"
+   
   end
 
   # POST /valorparametros
@@ -49,15 +56,20 @@ class ValorparametrosController < ApplicationController
   # PATCH/PUT /valorparametros/1
   # PATCH/PUT /valorparametros/1.json
   def update
-    respond_to do |format|
-      if @valorparametro.update(valorparametro_params)
-        format.html { redirect_to @valorparametro, notice: 'Registro fue actualizado exitosamente' }
-        format.json { render :show, status: :ok, location: @valorparametro }
-      else
-        format.html { render :edit }
-        format.json { render json: @valorparametro.errors, status: :unprocessable_entity }
-      end
-    end
+   
+    #respond_to do |format|
+    if @valorparametro.update(valorparametro_params)
+      #    pp("valorparams",valorparametro_params)
+      #    format.html { redirect_to @valorparametro, notice: 'Registro fue actualizado exitosamente' }
+      #    format.json { render :show, status: :ok, location: @valorparametro }
+      #  else
+      #    format.html { render :edit }
+      #    format.json { render json: @valorparametro.errors, status: :unprocessable_entity }
+      #  end
+      #end
+  
+    redirect_to "/valp/#{valorparametro_params['parametro_id']}"
+   end
   end
 
   # DELETE /valorparametros/1

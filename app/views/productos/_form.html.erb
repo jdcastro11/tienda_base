@@ -10,58 +10,74 @@
       </ul>
     </div>
   <% end %>
+    <div class="form-group row">
+          <label for="nombre" class="col-sm-2 col-form-label">Nombre*</label>
+          <div class="col-sm-4">
+          <%= form.text_field :nombre, :required => true, id: :producto_nombre,class:"form-control" %>		    
+          </div>
+    </div>
+    <div class="form-group row">
+      <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+      <div class="col-sm-4">
+          <%= form.text_field :descripcion, id: :producto_descripcion, class:"form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :producto_nombre %>
+<div class="form-group row">
+      <label for="ref" class="col-sm-2 col-form-label">Referencia</label>
+      <div class="col-sm-4">
+          <%= form.text_field :ref, id: :producto_ref, class:"form-control" %>
+      </div>
+  </div>
+<div class="form-group row">
+      <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+      <div class="col-sm-4">
+          <%= form.number_field :precio, id: :producto_precio, class:"form-control" %>
+      </div>
+ </div>
+ <% tipos = options_from_collection_for_select(@tipos, "id","valor",producto.idtipoproducto) %>
+  <div class="form-group row">
+   <label for="tipo" class="col-sm-2 col-form-label">Tipo:</label>
+     <div class="col-sm-4">
+      <%= form.select(:idtipoproducto, tipos,{},{class:"form-control"} ) %>
+      </div>
+  </div>
+ <% categorias = options_from_collection_for_select(@categorias, "id","valor",producto.idcategoriaproducto) %>
+  <div class="form-group row">
+   <label for="tipo" class="col-sm-2 col-form-label">Categoria:</label>
+     <div class="col-sm-4">
+      <%= form.select(:idcategoriaproducto, categorias,{},{class:"form-control"} ) %>
+      </div>
+  </div>
+<div class="form-group row">
+      <label for="stock" class="col-sm-2 col-form-label">Stock:</label>
+      <div class="col-sm-4">
+          <%= form.number_field :stock, id: :producto_stock, class:"form-control" %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= form.label :descipcion %>
-    <%= form.text_field :descipcion, id: :producto_descipcion %>
+ <div class="form-group row">
+      <label for="imagen" class="col-sm-2 col-form-label">imagen</label>
+      <div class="col-sm-4">
+          <%= form.text_field :imagen, id: :producto_imagen, class:"form-control" %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= form.label :ref %>
-    <%= form.text_field :ref, id: :producto_ref %>
-  </div>
-
-  <div class="field">
-    <%= form.label :precio %>
-    <%= form.text_field :precio, id: :producto_precio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :idtipoproducto %>
-    <%= form.number_field :idtipoproducto, id: :producto_idtipoproducto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :idcategoriaproducto %>
-    <%= form.number_field :idcategoriaproducto, id: :producto_idcategoriaproducto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :idestadoproducto %>
-    <%= form.number_field :idestadoproducto, id: :producto_idestadoproducto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock, id: :producto_stock %>
-  </div>
-
-  <div class="field">
-    <%= form.label :imagen %>
-    <%= form.text_field :imagen, id: :producto_imagen %>
-  </div>
-
-  <div class="field">
-    <%= form.label :eliminado %>
-    <%= form.check_box :eliminado, id: :producto_eliminado %>
+  <% estados = options_from_collection_for_select(@estados, "id","valor",producto.idestadoproducto) %>
+  <div class="form-group row">
+   <label for="tipo" class="col-sm-2 col-form-label">Estados:</label>
+     <div class="col-sm-4">
+      <%= form.select(:idestadoproducto, estados,{},{class:"form-control"} ) %>
+      </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar",class:"btn btn-warning btn-sm" %>
+    <% if @swope == 1 %>
+       <%  if @operaciones.include?("Eliminar") %>
+          <%= link_to 'Eliminar', producto,class:"btn btn-danger btn-sm ml-2", method: :delete, data: { confirm: 'Esta Seguro de ELiminar este Re?' } %>
+        <% end %>
+    <% end %>
+    <a href="/listarProductos" class="btn btn-info btn-sm ml-2">Regresar</a>
   </div>
 <% end %>

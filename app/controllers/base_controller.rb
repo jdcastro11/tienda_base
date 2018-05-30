@@ -3,32 +3,30 @@ class BaseController < ApplicationController
     require "pp"
     include Servicios
      #implementando Autenticación
-     
+   
      private  
      def auth!
-          
-         if session[:idrol]== ""     
+        excepciones=['productos1','mostrarCarrito','agregarCarrito','eliminarCarrito']
+       
+        uri= request.original_url
+        controlador=getControlador(uri)
+             
+        if excepciones.include?(controlador)          
+           return
+        end
+
+         if session[:idrol]== ""      
              puts "No hay session"
              redirect_to "/login"
              return                         
          end
      
-       # implementando  autorizacion
-         
-          puts "Si paso por qui hay Session"
-      
+       # implementando  autorizacion     
          #verb=request.env["REQUEST_METHOD"]
-         # accion=action_name      
-        uri= request.original_url  
+         # accion=action_name  
        
         idrol= session[:idrol]       
-        
-        uridiv = uri.split('/') 
-        if uridiv.length() > 3  and idrol !=""
-          controlador = uridiv[3].split("?").first.to_s  
-          puts "controlador="
-          pp(controlador)   
-          acceso=validarAccesoOpcion(idrol,controlador)
+        acceso=validarAccesoOpcion(idrol,controlador)
            
           if !acceso 
              redirect_to "/noacceso"
@@ -38,9 +36,9 @@ class BaseController < ApplicationController
             # obteniendo las oepraciones para la accion o controlador 
             if controlador !="inicio"
                 @operaciones=getOperaciones(idrol,controlador) 
-                 puts "operaciones=#{@operaciones}"    
-          end
-        end 
+                 puts "operaciones....=#{@operaciones}"    
+            end
+      
       end
   end
   

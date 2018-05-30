@@ -22,4 +22,8 @@
 
 class Cliente < ApplicationRecord
     has_many :facturas
+    
+    def nombrecompleto 
+        "#{try(:nombres)} #{try(:apellidos)}".to_s
+    end
 end

@@ -1,0 +1,57 @@
+<%= form_with(model: option, local: true) do |form| %>
+  <% if option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+      <% option.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idpadre %>
+    <%= form.number_field :idpadre, id: :option_idpadre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :opcion %>
+    <%= form.text_field :opcion, id: :option_opcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :option_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estadoopcion %>
+    <%= form.text_field :estadoopcion, id: :option_estadoopcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orden %>
+    <%= form.text_field :orden, id: :option_orden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eshoja %>
+    <%= form.check_box :eshoja, id: :option_eshoja %>
+  </div>
+
+  <div class="field">
+    <%= form.label :controller %>
+    <%= form.text_field :controller, id: :option_controller %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eliminado %>
+    <%= form.check_box :eliminado, id: :option_eliminado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap
 //= require dataTables
+//= require mis_script
 //= require_tree .

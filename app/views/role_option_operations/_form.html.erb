@@ -1,0 +1,51 @@
+<%= form_with(model: role_option_operation, local: true) do |form| %>
+  <% if role_option_operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(role_option_operation.errors.count, "error") %> prohibited this role_option_operation from being saved:</h2>
+
+      <ul>
+      <% role_option_operation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <% roles = options_from_collection_for_select(@roles, "id","valor",role_option_operation.idrol) %>
+  <div class="form-group row">
+     <label for="idrol" class="col-sm-2 col-form-label">Rol</label>
+    <div class="col-sm-4">
+      <%= form.select(:idrol, roles,{},{class:"form-control"} ) %>
+    </div>
+  </div>
+  <% opciones = options_from_collection_for_select(@opciones, "id","opcion",role_option_operation.options_id) %>
+  <div class="form-group row">
+     <label for="options_id" class="col-sm-2 col-form-label">Opcion:</label>    
+    <div class="col-sm-4">
+     <%= form.select(:options_id, opciones,{},{class:"form-control"} ) %>
+    </div>
+  </div>
+ <% operaciones = options_from_collection_for_select(@operaciones, "id","valor",role_option_operation.idoperacion) %>
+  <div class="form-group row">
+     <label for="idoperacion" class="col-sm-2 col-form-label">Operacion:</label>    
+    <div class="col-sm-4">
+
+     <%= form.select(:idoperacion, operaciones,{},{class:"form-control"} ) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+     <label for="estadorolop" class="col-sm-2 col-form-label">Estado</label>     
+    <div class="col-sm-4">
+       <%= form.text_field :estadorolop, id: :role_option_operation_estadorolop %>
+    </div>
+  </div>
+
+  <div class="actions">
+   
+    <%= form.submit "Guardar",class:"btn btn-warning btn-sm" %>
+    <% if @swope == 1 %>
+    <%= link_to 'Eliminar', role_option_operation,class:"btn btn-danger btn-sm ml-2", method: :delete, data: { confirm: 'Esta Seguro de ELiminar este Registro?' } %>
+    <% end %>
+    <a href="/role_option_operations" class="btn btn-info btn-sm ml-2">Regresar</a>
+  </div>
+<% end %>

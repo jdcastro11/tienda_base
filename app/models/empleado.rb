@@ -20,4 +20,8 @@
 #
 
 class Empleado < ApplicationRecord
+    
+    def nombrecompleto 
+        "#{try(:nombres)} #{try(:apellidos)}".to_s
+    end
 end

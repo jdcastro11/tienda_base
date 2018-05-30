@@ -4,7 +4,7 @@ class ParametrosController < BaseController
   # GET /parametros
   # GET /parametros.json
   def index
-    @parametros = Parametro.all
+    @parametros = Parametro.search(params[:term], params[:page])    
     render layout:"layout_admin", template:"parametros/listar"
   end
 
@@ -30,7 +30,7 @@ class ParametrosController < BaseController
 
     respond_to do |format|
       if @parametro.save
-        format.html { redirect_to @parametro, notice: 'Parametro was successfully created.' }
+        format.html { redirect_to @parametro, notice: 'Parametro creado exitosamete.' }
         format.json { render :show, status: :created, location: @parametro }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ParametrosController < BaseController
   def update
     respond_to do |format|
       if @parametro.update(parametro_params)
-        format.html { redirect_to @parametro, notice: 'Parametro was successfully updated.' }
+        format.html { redirect_to @parametro, notice: 'Parametro modificado exitosamente' }
         format.json { render :show, status: :ok, location: @parametro }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ParametrosController < BaseController
   def destroy
     @parametro.destroy
     respond_to do |format|
-      format.html { redirect_to parametros_url, notice: 'Parametro was successfully destroyed.' }
+      format.html { redirect_to parametros_url, notice: 'Parametro ha sido eliminado exitosamente' }
       format.json { head :no_content }
     end
   end

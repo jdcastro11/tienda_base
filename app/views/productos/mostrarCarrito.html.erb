@@ -1,5 +1,5 @@
 
-<%if not @micarrito.empty? %>
+<%if  @micarrito !=nil %>
       <table class="table mt-3">
 	       <tr>
 	           <th scope="col">Id</th>
@@ -15,7 +15,7 @@
 			      <td><%= car['nombre'] %></td>
 			      <td><%= car['cant'] %></td>
 			      <td><%= car['precio'] %></td>
-			      <td><a href="/productos/eliminar?in=<%=index %>"><i class='fa fa-times-circle'></i></a> </td>
+			      <td><a href="/eliminarCarrito?in=<%=index %>"><i class='fa fa-times-circle'></i></a> </td>
 		    </tr>		
           <% end %>  	      
       </table>

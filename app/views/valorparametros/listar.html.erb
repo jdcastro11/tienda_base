@@ -1,31 +1,29 @@
 
-<h4>Valores del Parametro</h4>
-<a href="/valp/<%= @idvp %>/new" class="btn btn-primary btn-sm">Nuevo</a>
+<h4>Valores del Parámetro</h4>
+<hr>
+<a href="/valp/<%= @idp %>/new" class="btn btn-primary btn-sm">Nuevo</a>
  
  <p id="notice"><%= notice %></p>
-<table class="table-striped">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Id</th>
       <th>Valor</th>
       <th>Estado</th>
       <th>Orden</th>
-      <th>Eliminado</th>
-      <th>Idpadre</th>
-      <th> </th>
+      <th>Padre</th>    
     </tr>
   </thead>
 
   <tbody>
     <% @valorparametros.each do |valorparametro| %>
       <tr>
-        <td><a class="llaves" href="/valorparametros/<%= valorparametro.id %>"><%= valorparametro.id %></a></td>
+        <td><a class="llaves" href="/valorparametros/<%= valorparametro.id %>/edit?idp=<%= @idp %>"><%= valorparametro.id %></a></td>
         <td><%= valorparametro.valor %></td>
         <td><%= valorparametro.estadovalorparametro %></td>
         <td><%= valorparametro.orden %></td>
-        <td><%= valorparametro.eliminado %></td>
         <td><%= valorparametro.idpadre %></td>
-        <td><%= link_to 'Destroy', valorparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Destroy', valorparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

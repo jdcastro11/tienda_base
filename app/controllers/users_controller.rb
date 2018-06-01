@@ -3,22 +3,51 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  include Servicios
+  require 'json'
   def index
     @users = User.all
+    @usersExt= @users.map do |u|
+      {
+        "id"           =>u.id,
+        "usuario"      =>u.usuario,
+        "tipo"         =>TraerValorParametro(u.idtipoentidad),
+        "nombre"        =>TraerUsuario(u.idtipoentidad,u.identidad),
+        "rol"           =>TraerValorParametro(u.idrol),
+        "estado"        =>TraerValorParametro(u.idestadousuario)
+      }
+    end
+    render layout: "layout_admin"
   end
-
+  def traer    
+     @personas=TraerUsuarios(params[:id])  
+      respond_to do |format|      
+        format.json { render json:@personas.to_json}      
+      end
+  end
   # GET /users/1
   # GET /users/1.json
   def show
+    render layout: "layout_admin"
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @tipos=TraerParametros(10)  
+    @roles= TraerParametros(9)
+    @estados=TraerParametros(8)
+    @swope=0
+    render layout: "layout_admin"
   end
 
   # GET /users/1/edit
   def edit
+    @tipos=TraerParametros(10)  
+    @roles= TraerParametros(9)
+    @estados=TraerParametros(8)
+    @swope=1
+    render layout: "layout_admin"
   end
 
   # POST /users

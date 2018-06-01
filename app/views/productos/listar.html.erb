@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Productos</h1>
+<h4>Lista de Productos</h4>
 <hr>
-<%= link_to 'Nuevo', new_producto_path, class:"btn btn-primary btn-sm mb-2" %>
-<table>
+<%  if @operaciones.include?("Crear") %>
+   <%= link_to 'Nuevo', new_producto_path, class:"btn btn-primary btn-sm mb-2" %>
+<%end %>
+<p id="notice"><%= notice %></p>
+<table class="table table-striped" >
   <thead>
     <tr>
        <th>ID</th>
@@ -39,5 +40,5 @@
   </tbody>
 </table>
 
-<br>
+
 

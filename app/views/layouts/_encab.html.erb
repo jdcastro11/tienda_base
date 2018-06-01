@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid ">
-  <div class="col-lg-3 logo">
+  <div class="col-lg-3 logo ">
               <!-- <%= image_tag("logo.png", :class => "logo") %>  -->
               Comprando.co           
   </div>
@@ -7,30 +7,34 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent ">
    <ul class="navbar-nav ">      
       <li class="nav-item">
-          <a class="nav-link ml-0" href="#"><i class="fa fa-home fa-2x"></i> Inicio</a>
+          <a class="nav-link ml-3" href="<%= session[:idrol] ==26 ? '/admin' :'/inicio' %>"><i class="fa fa-home fa-2x"></i> Inicio</a>
       </li>
        
       <li class="nav-item">
-        <a class="nav-link ml-1 pl-0" href="/productos/mostrar"><i class="fa fa-shopping-cart fa-2x"></i> Ver Carrito (<%= session[:numcar] %>)</a>
+        <a class="nav-link ml-1 pl-0" href="/mostrarCarrito"><i class="fa fa-shopping-cart fa-2x"></i> Ver Carrito (<%= session[:numcar] %>)</a>
       </li>
-      <li class="nav-item ml-5">
-         <a href="/productos" class="nav-link">Productos</a>
+      <li class="nav-item ml-25 p-2">
+         <a href="/productos1" class="nav-link">Productos</a>
      </li>
-      <li class="nav-item ml-5">
+      <li class="nav-item ml-2 p-2">
          <a href="#" class="nav-link">Registrese</a>
      </li>
+     <li class="nav-item ml-2 p-2">
+         <a href="/login" class="nav-link">Login</a>
+     </li>
     </ul>
-  <div class="nav-item dropdown ml-esp">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user fa-2x"></i> <%= session[:usuario] %>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Ver Perfil</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-lock fa-fw"></i> Cambiar Password</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
-        </div>
-      </li>
-
-  </div>
+    <% if session[:usuario] != ''  %>
+      <div class="nav-item dropdown ml-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user fa-2x"></i> <%= session[:usuario] %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Ver Perfil</a>
+              <a class="dropdown-item" href="#"><i class="fa fa-lock fa-fw"></i> Cambiar Password</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+            </div>
+          </li>
+      </div>
+    <% end %>
 </nav>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Idpadre</th>
+      <th>Opcion</th>
+      <th>Url</th>
+      <th>Estadoopcion</th>
+      <th>Orden</th>
+      <th>Eshoja</th>
+      <th>Controller</th>
+      <th>Eliminado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @options.each do |option| %>
+      <tr>
+        <td><%= option.id %></td>
+        <td><%= option.idpadre %></td>
+        <td><%= option.opcion %></td>
+        <td><%= option.url %></td>
+        <td><%= option.estadoopcion %></td>
+        <td><%= option.orden %></td>
+        <td><%= option.eshoja %></td>
+        <td><%= option.controller %></td>
+        <td><%= option.eliminado %></td>
+        <td><%= link_to 'Show', option %></td>
+        <td><%= link_to 'Edit', edit_option_path(option) %></td>
+        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Option', new_option_path %>

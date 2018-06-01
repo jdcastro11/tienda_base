@@ -22,5 +22,5 @@ class Valorparametro < ApplicationRecord
         else
           paginate(page: page, per_page: 10).order('id DESC') 
         end
-      end
+    end
 end

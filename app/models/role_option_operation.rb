@@ -13,5 +13,5 @@
 #
 
 class RoleOptionOperation < ApplicationRecord
-    belongs_to :option
+    belongs_to :option,:optional => true
 end

@@ -1,0 +1,31 @@
+<h4>Lista de Permisos</h4>
+<hr>
+<p id="notice"><%= notice %></p>
+<%= link_to 'Nuevo', new_role_option_operation_path, class:"btn btn-primary btn-sm mb-2" %>
+<table class="table">
+  <thead>
+    <tr>
+     <th>ID</th>
+      <th>Rol</th>
+      <th>Opción</th>
+      <th>Operación</th>
+      <th>Estado</th>
+     </tr>
+  </thead>
+
+  <tbody>
+    <% @permisos.each do |perm| %>
+      <tr>
+        <td><a href="/role_option_operations/<%= perm["id"] %>"> <%= perm["id"] %></a></td>
+        <td><%= perm["rol"] %></td>
+        <td><%= perm["opcion"] %></td>
+        <td><%= perm["operacion"] %></td>
+        <td><%= perm["estado"] %></td> 
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

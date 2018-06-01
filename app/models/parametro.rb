@@ -13,4 +13,14 @@
 
 class Parametro < ApplicationRecord
     has_many :valorparametros
+    
+
+    def self.search(term, page)
+        if term
+          where('nombre LIKE ?', "%#{term}%").paginate(page: page, per_page: 10).order('id DESC')
+        else
+          paginate(page: page, per_page: 10).order('id DESC') 
+        end
+    end
+    
 end

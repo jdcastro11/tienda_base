@@ -1,4 +1,4 @@
-class ProductosController < ApplicationController
+class ProductosController < BaseController
   skip_before_action:verify_authenticity_token
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
@@ -33,11 +33,13 @@ class ProductosController < ApplicationController
   end
 
   def mostrarCarrito
-   @micarrito=session[:carrito]
+    @micarrito=session[:carrito]
+    @numcar=session[:numcar]
     end
   # GET /productos/1
   # GET /productos/1.json
   def show
+    render layout: "layout_admin"
   end
 
   def eliminarDelCarrito
@@ -51,6 +53,11 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
+    @tipos=TraerParametros(1)
+    @categorias=TraerParametros(2)
+    @estados=TraerParametros(3)
+    @swope=0
+    render layout: "layout_admin"
   end
   def listar
     @productos=Producto.all
@@ -68,9 +75,16 @@ class ProductosController < ApplicationController
         "imagen"       => p.imagen
       }
     end
+    render layout: "layout_admin"
   end
   # GET /productos/1/edit
   def edit
+    @tipos=TraerParametros(1)
+    @categorias=TraerParametros(2)
+    @estados=TraerParametros(3)
+    @swope=1
+    render layout: "layout_admin"
+   
   end
 
   # POST /productos
@@ -80,7 +94,7 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to @producto, notice: 'Producto creado exitosamente' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -94,7 +108,7 @@ class ProductosController < ApplicationController
   def update
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to @producto, notice: 'Producto fue modificado exitosamente' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }
@@ -108,7 +122,7 @@ class ProductosController < ApplicationController
   def destroy
     @producto.destroy
     respond_to do |format|
-      format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
+      format.html { redirect_to productos_url, notice: 'Producto exitosamente eliminado.' }
       format.json { head :no_content }
     end
   end

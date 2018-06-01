@@ -1,7 +1,8 @@
 class PruebaController < ApplicationController
+    include Servicios
     def index  
-        @valorparametros=Valorparametro.all
-        render  layout: 'admin' , template: "valorparametros/index"     
+        @xx=TraerUsuario(36,1)
+        pp("clientes Activos",@xx)
     end
 
 end

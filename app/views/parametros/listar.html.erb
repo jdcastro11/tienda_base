@@ -1,7 +1,8 @@
-<h4>Parametros</h4>
+<h4>Lista de Parametros</h4>
+<hr>
 <%= link_to 'Nuevo', new_parametro_path, class:"btn btn-primary btn-sm" %>
 <p id="notice"><%= notice %></p>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
      <th>Id</th>
@@ -25,6 +26,8 @@
   </tbody>
 </table>
 
-<br>
+<div class="digg_pagination mt-2"> 
+  <%= will_paginate @parametros, :container => false %>
+</div>
 
 

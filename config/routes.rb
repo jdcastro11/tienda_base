@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'seguridad/login'
   post '/auth', to:'seguridad#autenticar'
   get '/login', to:'seguridad#login'
+  get '/registrocliente', to: 'clientes#new'
+  get '/editarusuario', to: 'clientes#edit'
   get '/inicio', to:'inicio#index'
   get '/admin', to:'admin#admin'
   get '/noacceso', to:'inicio#noacceso'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :clientes
   get 'prueba/index'
-  get  '/productos1', to:'productos#index'
+  get '/productos1', to:'productos#index'
   get '/valp/:id', to: "valorparametros#index"
   get '/valp/:id/new', to:'valorparametros#new'
   post '/agregarCarrito', to:'productos#agregarCarrito' 

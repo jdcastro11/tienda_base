@@ -26,10 +26,22 @@
     <%= form.text_field :identificacion, id: :cliente_identificacion %>
   </div>
 
-  <div class="field">
-    <%= form.label :idtipoidentificacion %>
-    <%= form.number_field :idtipoidentificacion, id: :cliente_idtipoidentificacion %>
+<% tipoId = options_from_collection_for_select(@tipoId, "id","valor",cliente.idtipoidentificacion) %>
+<div class="form-group row">
+      <label for="idtipoidentificacion" class="col-sm-2 col-form-label">Tipo ID:</label>
+   <div class="col-sm-4">
+          <%= form.select(:idtipoidentificacion, tipoId,{},{class:"form-control"} ) %>
+   </div>
   </div>
+
+  <% idGenero = options_from_collection_for_select(@idGenero, "id","valor",cliente.idtipoidentificacion) %>
+<div class="form-group row">
+      <label for="idtipoidentificacion" class="col-sm-2 col-form-label">Tipo ID:</label>
+   <div class="col-sm-4">
+          <%= form.select(:idtipoidentificacion, idGenero,{},{class:"form-control"} ) %>
+   </div>
+  </div>  
+ 
 
   <div class="field">
     <%= form.label :razonSocial %>
@@ -51,32 +63,24 @@
     <%= form.text_field :telefonos, id: :cliente_telefonos %>
   </div>
 
-  <div class="field">
-    <%= form.label :idtipocliente %>
-    <%= form.number_field :idtipocliente, id: :cliente_idtipocliente %>
+<% tipoCliente = options_from_collection_for_select(@tipoCliente, "id","valor",cliente.idtipocliente) %>
+<div class="form-group row">
+      <label for="idtipocliente" class="col-sm-2 col-form-label">Tipo Cliente:</label>
+   <div class="col-sm-4">
+          <%= form.select(:idtipocliente, tipoCliente,{},{class:"form-control"} ) %>
+   </div>
   </div>
 
-  <div class="field">
-    <%= form.label :idcategoriacliente %>
-    <%= form.number_field :idcategoriacliente, id: :cliente_idcategoriacliente %>
+  <% catcliente = options_from_collection_for_select(@catcliente, "id","valor",cliente.idtipocliente) %>
+<div class="form-group row">
+      <label for="idtipocliente" class="col-sm-2 col-form-label">Tipo Cliente:</label>
+   <div class="col-sm-4">
+          <%= form.select(:idtipocliente, catcliente,{},{class:"form-control"} ) %>
+   </div>
   </div>
-
-  <div class="field">
-    <%= form.label :idestado %>
-    <%= form.number_field :idestado, id: :cliente_idestado %>
-  </div>
-
-  <div class="field">
-    <%= form.label :idgenero %>
-    <%= form.number_field :idgenero, id: :cliente_idgenero %>
-  </div>
-
-  <div class="field">
-    <%= form.label :eliminado %>
-    <%= form.check_box :eliminado, id: :cliente_eliminado %>
-  </div>
+ 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class:"" %>
   </div>
 <% end %>

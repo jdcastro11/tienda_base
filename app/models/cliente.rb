@@ -22,7 +22,14 @@
 
 class Cliente < ApplicationRecord
     has_many :facturas
-    
+    validates :nombres, presence: true, length:{minimum: 4}
+    validates :apellidos, presence: true, length:{minimum: 4}
+    validates :razonSocial, presence: true, length:{minimum: 4}
+    validates :correo, presence: true, length:{minimum: 4}
+    validates :direccion, presence: true, length:{minimum: 4}
+    validates :telefonos, presence: true, length:{minimum: 4}
+    validates :identificacion, presence: true, length: {minimum:5},
+    uniqueness: {case_sensitive: false, messgae: "Cliente ya existe"}
     def nombrecompleto 
         "#{try(:nombres)} #{try(:apellidos)}".to_s
     end

@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `ar_internal_metadata`
 --
 
-CREATE TABLE `ar_internal_metadata` (
+CREATE TABLE `ar_internal_metadata` IF NOT EXISTS(
   `key` varchar(255) NOT NULL,
   `value` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,

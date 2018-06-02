@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20180516132409) do
 
-  create_table "carritos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "carritos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombres", limit: 100
     t.string "apellidos", limit: 100
     t.string "identificacion", limit: 50
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "detfacturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "detfacturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "cant"
     t.decimal "precio", precision: 6, scale: 2
     t.decimal "iva", precision: 4, scale: 2
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.index ["producto_id"], name: "index_detfacturas_on_producto_id"
   end
 
-  create_table "empleados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "empleados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "identificacion", limit: 50
     t.integer "idtipoidentificacion"
     t.string "nombres", limit: 100
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "facturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "facturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "numfact", limit: 10
     t.datetime "fecha"
     t.string "direntrega", limit: 200
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.index ["empleado_id"], name: "index_facturas_on_empleado_id"
   end
 
-  create_table "options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "idpadre"
     t.string "opcion", limit: 100
     t.string "url", limit: 200
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.boolean "eliminado", default: false
   end
 
-  create_table "parametros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "parametros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "atributo", limit: 50
     t.string "descripcion", limit: 300
     t.string "estadoparametro", limit: 1, default: "A"
@@ -100,22 +100,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "productos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "nombre", limit: 100
-    t.string "descipcion", limit: 300
-    t.string "ref", limit: 50
-    t.decimal "precio", precision: 6, scale: 2
-    t.integer "idtipoproducto"
-    t.integer "idcategoriaproducto"
-    t.integer "idestadoproducto"
-    t.integer "stock", default: 0
-    t.string "imagen", limit: 100
-    t.boolean "eliminado", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "role_option_operations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "role_option_operations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "idrol"
     t.integer "idoperacion"
     t.string "estadorolop", limit: 1, default: "A"
@@ -126,7 +111,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.index ["options_id"], name: "index_role_option_operations_on_options_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "usuario", limit: 50
     t.string "password", limit: 50
     t.integer "identidad"
@@ -138,7 +123,7 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "valorparametros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "valorparametros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "valor", limit: 300
     t.string "estadovalorparametro", limit: 1, default: "A"
     t.string "orden", limit: 4

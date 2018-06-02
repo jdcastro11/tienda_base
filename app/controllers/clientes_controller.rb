@@ -3,22 +3,48 @@ class ClientesController < ApplicationController
 
   # GET /clientes
   # GET /clientes.json
+  include Servicios
+  require 'json'
   def index
     @clientes = Cliente.all
+    @clientesExt= @clientes.map do |c|
+      {
+        "id"   =>c.id,
+        "nombres"   =>c.nombres,
+        "apellidos"   =>c.apellidos,
+        "identificacion"   =>c.identificacion,
+        "Tipo_ID"   =>TraerValorParametro(c.idtipoidentificacion),
+        "razonSocial"   =>c.razonSocial,
+        "correo"   =>c.correo,
+        "direccion"   =>c.direccion,
+        "telefonos"   =>c.telefonos,
+        "Tipo_Cliente"   =>TraerValorParametro(c.idtipocliente),
+        "Categoria_Cliente"   =>TraerValorParametro(c.idcategoriacliente)
+      }
+    end
   end
 
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+    
   end
 
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @tipoId = TraerParametros(4)
+    @tipoCliente = TraerParametros(5)
+    @catcliente = TraerParametros(12)
+    @idGenero = TraerParametros(11)
   end
 
   # GET /clientes/1/edit
   def edit
+    @tipoId = TraerParametros(4)
+    @tipoCliente = TraerParametros(5)
+    @catcliente = TraerParametros(12)
+    @idGenero = TraerParametros(11)
   end
 
   # POST /clientes

@@ -2,8 +2,8 @@
 
 <h1>Clientes</h1>
 
-<table class="table-responsive">
-  <thead>
+<table class="table-responsive table">
+  <thead class="thead-dark">
     <tr>
       <th>Id</th>
       <th>Nombres</th>
@@ -23,7 +23,7 @@
   <tbody>
     <% @clientesExt.each do |cliente| %>
       <tr>
-        <td><a href="/clientes/<%= cliente['id'] %>"><%= cliente['id'] %></a></td>
+        <td scope="row"><a href="/clientes/<%= cliente['id'] %>"><%= cliente['id'] %></a></td>
         <td><%= cliente["nombres"] %></td>
         <td><%= cliente["apellidos"] %></td>
         <td><%= cliente["identificacion"] %></td>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Cliente', new_cliente_path %>
+<%= link_to 'Nuevo Cliente', new_cliente_path, {:class=>"btn btn-primary"} %>

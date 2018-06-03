@@ -115,3 +115,14 @@ label{
 *:first-child + html .digg_pagination {
 	overflow: hidden; }
   
+
+.box-shadow{
+	-webkit-box-shadow: 0px 0px 0.1px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 0.1px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 0.1px 0px rgba(0,0,0,0.75);
+}
+
+
+.color{
+	background-color: #f1f1f1;
+}

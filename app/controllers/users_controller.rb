@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  skip_before_action:verify_authenticity_token #desactiva el control de autencicidad del la solicitud
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /users
   # GET /users.json
@@ -89,6 +91,16 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+ 
+  def cambiarcontrasena
+    pass=Encriptar(params[:password])
+    xusuario=User.where(id:session[:idusuario])
+    if xusuario.update(password: pass)
+      redirect_to "/inicio"
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

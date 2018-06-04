@@ -1,1 +1,1 @@
-bundle exec thin start -R ./config.ru -e production -p 11400
+web: bundle exec puma -C config/puma.rb

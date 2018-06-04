@@ -11,56 +11,45 @@
     </div>
   <% end %>
 
-  <div class="form-group row">
-      <label for="usuario" class="col-sm-2 col-form-label">Usuario:</label>
-     <div class="col-sm-4">
-    <%= form.text_field :usuario, id: :user_usuario, class:"form-control" %>
-    </div>
+  <div class="form-group">
+      <label for="usuario" >Usuario:</label>
+      <%= form.text_field :usuario, id: :user_usuario, class:"form-control" %>
   </div>
 
-  <div class="form-group row">
-      <label for="password" class="col-sm-2 col-form-label">Password:</label>
-    <div class="col-sm-4">
-    <%= form.password_field :password, id: :user_password, class:"form-control" %>
-    </div>
-  </div>
-<% tipos = options_from_collection_for_select(@tipos, "id","valor",user.idtipoentidad) %>
-  <div class="form-group row">
-     <label for="idtipoentidad" class="col-sm-2 col-form-label">Tipo:</label>
-     <div class="col-sm-4">
-        <%= form.select(:idtipoentidad, tipos,{},{id:"identidadId", class:"form-control",onchange:"traerUsuarios()"}) %>
-     </div>
+  <div class="form-group">
+      <label for="password" >Password:</label>
+      <%= form.password_field :password, id: :user_password, class:"form-control" %>
   </div>
 
-  <div class="form-group row">
-     <label for="identidad" class="col-sm-2 col-form-label">Nombre:</label>
-     <div class="col-sm-4">
-       <select name="user[identidad]" id="user_identidad" class="form-control">
-         
-       </select>
-    </div>
-  </div>
+  <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <% tipos = options_from_collection_for_select(@tipos, "id","valor",user.idtipoentidad) %>
+          <label for="idtipoentidad" >Tipo:</label>
+          <%= form.select(:idtipoentidad, tipos,{},{id:"identidadId", class:"form-control",onchange:"traerUsuarios()"}) %>
+        </div>
+        <div class="col">
+          <label for="identidad" >Nombre:</label>
+          <select name="user[identidad]" id="user_identidad" class="form-control">
+          </select>
+          <% roles = options_from_collection_for_select(@roles, "id","valor",user.idrol) %>
+        </div>
 
-<% roles = options_from_collection_for_select(@roles, "id","valor",user.idrol) %>
-<div class="form-group row">
-      <label for="idrol" class="col-sm-2 col-form-label">Rol:</label>
-   <div class="col-sm-4">
+        <div class="col">
+          <label for="idrol" >Rol:</label>
           <%= form.select(:idrol, roles,{},{class:"form-control"} ) %>
-   </div>
+        </div>
+        <div class="col">
+          <% estados = options_from_collection_for_select(@estados, "id","valor",user.idestadousuario) %>
+          <label for="idestadousuario" >Estado:</label>
+          <%= form.select(:idestadousuario, estados,{},{class:"form-control"} ) %>
+        </div>
+      </div>
   </div>
 
-//TODO: como sacar los parametros del combo 
-<!--TODO: como sacar los parametros del combo  -->
-<% estados = options_from_collection_for_select(@estados, "id","valor",user.idestadousuario) %>
-  <div class="form-group row">
-    <label for="idestadousuario" class="col-sm-2 col-form-label">Estado:</label>
-     <div class="col-sm-4">
-        <%= form.select(:idestadousuario, estados,{},{class:"form-control"} ) %>
-    </div>
-  </div>
 
    <div class="actions">
-    <%= form.submit "Guardar",class:"btn btn-warning btn-sm" %>
+    <%= form.submit "Guardar",class:"btn btn-success btn-sm" %>
     <% if @swope == 1 %>
        <%= link_to 'Eliminar', user,class:"btn btn-danger btn-sm ml-2", method: :delete, data: { confirm: 'Esta Seguro de ELiminar este Registro?' } %>
     <% end %>

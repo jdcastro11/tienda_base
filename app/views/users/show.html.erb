@@ -1,31 +1,31 @@
 <p id="notice"><%= notice %></p>
-<table>
-
-<p>
-  <strong>Usuario:</strong>
-  <%= @user.usuario %>
-</p>
 
 
-<p>
-  <strong>Identidad:</strong>
-  <%= @user.identidad %>
-</p>
 
-<p>
-  <strong>Idtipoentidad:</strong>
-  <%= @user.idtipoentidad %>
-</p>
+<div class="card p-3" style="width: 18rem;" >
+  <img class="card-img-top" src="https://image.flaticon.com/icons/svg/265/265674.svg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.usuario %> -- <%= @user.idrol %> </h5>
+    
+    <p class="card-text">
+       <strong>Identidad:</strong>
+      <%= @user.identidad %>
+     </p>
 
-<p>
-  <strong>Idestadousuario:</strong>
-  <%= @user.idestadousuario %>
-</p>
+    <p class="card-text">
+      <strong>Idtipoentidad:</strong>
+      <%= @user.idtipoentidad %>
+    </p>
 
-<p>
-  <strong>Idrol:</strong>
-  <%= @user.idrol %>
-</p>
+    <p class="card-text">
+      <strong>Idestadousuario:</strong>
+      <%= @user.idestadousuario %>
+    </p>
+    
+    <%= link_to 'Editar', edit_user_path(@user) ,class:"btn btn-success btn-sm mb-2" %> 
+    <%= link_to 'Regresar', users_path, class:"btn btn-info btn-sm mb-2 ml-2"%>
 
-<%= link_to 'Editar', edit_user_path(@user) ,class:"btn btn-success btn-sm mb-2" %> 
-<%= link_to 'Back', users_path, class:"btn btn-info btn-sm mb-2 ml-2"%>
+  </div>
+</div>
+
+

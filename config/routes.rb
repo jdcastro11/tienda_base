@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/auth', to:'seguridad#autenticar'
   get '/login', to:'seguridad#login'
   get '/registrocliente', to: 'clientes#new'
+  get '/registrousuario', to: 'users#new'
   get '/editarusuario', to: 'clientes#edit'
   get '/inicio', to:'inicio#index'
   get '/admin', to:'admin#admin'

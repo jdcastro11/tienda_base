@@ -30,6 +30,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users = User.where(id: params[:id])
+    @usersExt= @users.map do |u|
+      {
+        "id"           =>u.id,
+        "usuario"      =>u.usuario,
+        "tipo"         =>TraerValorParametro(u.idtipoentidad),
+        "rol"           =>TraerValorParametro(u.idrol),
+        "estado"        =>TraerValorParametro(u.idestadousuario)
+      }
+    end
     render layout: "layout_admin"
   end
 

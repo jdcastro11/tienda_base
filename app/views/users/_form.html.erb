@@ -28,9 +28,20 @@
           <label for="idtipoentidad" >Tipo:</label>
           <%= form.select(:idtipoentidad, tipos,{},{id:"identidadId", class:"form-control",onchange:"traerUsuarios()"}) %>
         </div>
+<<<<<<< HEAD
           
         <div class="col">
           <% roles = options_from_collection_for_select(@roles, "id","valor",user.idrol) %>
+=======
+        <!--<div class="col">
+          <label for="identidad" >Nombre:</label>
+          <select name="user[identidad]" id="user_identidad" class="form-control">
+          </select>
+          <% roles = options_from_collection_for_select(@roles, "id","valor",user.idrol) %>
+        </div>-->
+
+        <div class="col">
+>>>>>>> a66ffc186f305ce498ee4ad5a3d4b92b5a28c4dd
           <label for="idrol" >Rol:</label>
           <%= form.select(:idrol, roles,{},{class:"form-control"} ) %>
         </div>

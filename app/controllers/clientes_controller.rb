@@ -27,7 +27,22 @@ class ClientesController < ApplicationController
   # GET /clientes/1
   # GET /clientes/1.json
   def show
-    
+    @clientes = Cliente.where(id: params[:id])
+    @clientesExt= @clientes.map do |c|
+      {
+        "id"   =>c.id,
+        "nombres"   =>c.nombres,
+        "apellidos"   =>c.apellidos,
+        "identificacion"   =>c.identificacion,
+        "Tipo_ID"   =>TraerValorParametro(c.idtipoidentificacion),
+        "razonSocial"   =>c.razonSocial,
+        "correo"   =>c.correo,
+        "direccion"   =>c.direccion,
+        "telefonos"   =>c.telefonos,
+        "Tipo_Cliente"   =>TraerValorParametro(c.idtipocliente),
+        "Categoria_Cliente"   =>TraerValorParametro(c.idcategoriacliente)
+      }
+    end
   end
 
   # GET /clientes/new

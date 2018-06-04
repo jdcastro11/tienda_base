@@ -13,33 +13,34 @@
   <div class="col-sm-8">
     <div class="row">
       <div class="col">
+      <% @clientesExt.each do |cliente| %>
         <p>
           <strong>Nombres:</strong>
-          <%= @cliente.nombres %>
+         <%= cliente["nombres"] %>
         </p>
 
         <p>
           <strong>Apellidos:</strong>
-          <%= @cliente.apellidos %>
+          <%= cliente["apellidos"] %>
         </p>
 
         <p>
           <strong>Identificacion:</strong>
-          <%= @cliente.identificacion %>
+          <%= cliente["identificacion"] %>
         </p>
 
         <p>
-          <strong>Idtipoidentificacion:</strong>
-          <%= @cliente.idtipoidentificacion %>
+          <strong>Tipo ID:</strong>
+          <%= cliente["Tipo_ID"] %>
         </p>
          <p>
           <strong>Razonsocial:</strong>
-          <%= @cliente.razonSocial %>
+          <%= cliente["razonSocial"] %>
         </p>
 
         <p>
           <strong>Correo:</strong>
-          <%= @cliente.correo %>
+          <%= cliente["correo"] %>
         </p>
 
         
@@ -50,38 +51,25 @@
 
         <p>
           <strong>Telefonos:</strong>
-          <%= @cliente.telefonos %>
+          <%= cliente["telefonos"] %>
         </p>
 
         <p>
           <strong>Direccion:</strong>
-          <%= @cliente.direccion %>
+         <%= cliente["direccion"] %>
         </p>
 
         <p>
-          <strong>Idtipocliente:</strong>
-          <%= @cliente.idtipocliente %>
+          <strong>Tipo Cliente:</strong>
+          <%= cliente["Tipo_Cliente"] %>
         </p>
 
         <p>
-          <strong>Idcategoriacliente:</strong>
-          <%= @cliente.idcategoriacliente %>
+          <strong>Categoria Cliente:</strong>
+          <%= cliente["Categoria_Cliente"] %>
         </p>
 
-        <p>
-          <strong>Idestado:</strong>
-          <%= @cliente.idestado %>
-        </p>
-
-        <p>
-          <strong>Idgenero:</strong>
-          <%= @cliente.idgenero %>
-        </p>
-
-        <p>
-          <strong>Eliminado:</strong>
-          <%= @cliente.eliminado %>
-        </p>
+       <% end %> 
       </div>
     
     </div>
@@ -91,5 +79,5 @@
 </div>
 
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+<%= link_to 'Editar', edit_cliente_path(@cliente) %> |
+<%= link_to 'Atras', clientes_path %>

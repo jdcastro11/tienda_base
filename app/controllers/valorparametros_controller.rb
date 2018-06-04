@@ -1,4 +1,4 @@
-class ValorparametrosController < ApplicationController
+class ValorparametrosController < BaseController
   before_action :set_valorparametro, only: [:show, :edit, :update, :destroy]
 
   # GET /valorparametros

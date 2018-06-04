@@ -48,7 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgres
-  database: tienda_base_production
-  username: tienda_base
-  password: <%= ENV['TIENDA_BASE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: db/production.sqlite3

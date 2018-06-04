@@ -94,10 +94,12 @@ class UsersController < ApplicationController
 
  
   def cambiarcontrasena
-    pass=Encriptar(params[:password])
+    #pass=Encriptar(params[:password])
+    pass = params[:password]
     xusuario=User.where(id:session[:idusuario])
+    print xusuario
     if xusuario.update(password: pass)
-      redirect_to "/inicio"
+     redirect_to "/inicio"
     end
   end
 

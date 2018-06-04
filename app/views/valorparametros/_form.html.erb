@@ -13,43 +13,43 @@
     </div>
   <% end %>
 
-  <div class="form-group row">
-    <label for="valor" class="col-sm-2 col-form-label">Valor:</label>
-    <div class="col-sm-4">
-    <%= form.text_field :valor, id: :valorparametro_valor %>
-    </div> 
-  </div>
- <div class="form-group row">
-     <label for="parametro_id" class="col-sm-2 col-form-label">Parametro:</label>
-    <div class="col-sm-4">
-    <%= form.text_field :parametro_id, id: :valorparametro_parametro_id,:readonly => true,value:@idp %>
-    </div> 
-  </div>
-  <div class="form-group row">
-     <label for="valor" class="col-sm-2 col-form-label">Estado:</label>
-    <div class="col-sm-4">
-    <%= form.text_field :estadovalorparametro, id: :valorparametro_estadovalorparametro %>
-    </div> 
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <label for="valor">Valor:</label>
+        <%= form.text_field :valor, id: :valorparametro_valor %>
+      </div>
+      <div class="col">
+        <label for="parametro_id">Parametro:</label>
+        <%= form.text_field :parametro_id, id: :valorparametro_parametro_id,:readonly => true,value:@idp, class:"form-control" %>
+      </div>
+      <div class="col">
+        <label for="valor">Estado:</label>
+      <%= form.text_field :estadovalorparametro, id: :valorparametro_estadovalorparametro, class:"form-control" %>
+      </div>
+      <div class="col">
+        <label for="orden">Orden:</label>
+      <%= form.text_field :orden, id: :valorparametro_orden ,class:"form-control"%>
+      </div>
+      <div class="col">
+        <label for="idpadre">Padre:</label>
+        <%= form.number_field :idpadre, id: :valorparametro_idpadre, class:"form-control" %>
+      </div>   
+    </div>
   </div>
 
-  <div class="form-group row">
-     <label for="orden" class="col-sm-2 col-form-label">Orden:</label>
-    <div class="col-sm-4">
-    <%= form.text_field :orden, id: :valorparametro_orden %>
-    </div> 
-  </div>
-
-  <div class="form-group row">
-    <label for="idpadre" class="col-sm-2 col-form-label">Padre:</label>
-    <div class="col-sm-4">
-    <%= form.number_field :idpadre, id: :valorparametro_idpadre %>
-    </div> 
-  </div>
   <div class="actions">
-    <%= form.submit "Guardar",class:"btn btn-warning btn-sm" %>
-    <% if @swope == 1 %>
-       <%= link_to 'Eliminar', :valorparametro,class:"btn btn-danger btn-sm ml-2", method: :delete, data: { confirm: 'Esta Seguro de ELiminar este Re?' } %>
-    <% end %>
-    <a href="/valp/<%= @idp %>" class="btn btn-info btn-sm mb-1">Regresar</a>
+  <div class="row">
+      <div class="col">
+        <%= form.submit "Guardar",class:"btn btn-warning btn-block btn-large" %>
+      </div>
+      <div class="col">
+        <% if @swope == 1 %>
+          <%= link_to 'Eliminar', :valorparametro,class:"btn btn-danger btn-block btn-large", method: :delete, data: { confirm: 'Esta Seguro de ELiminar este Re?' } %>
+        <% end %>
+      </div>
+      <div class="col">
+        <a href="/valp/<%= @idp %>" class="btn btn-info btn-block btn-large">Regresar</a>
+      </div>
+      <% end %>
   </div>
-<% end %>

@@ -2,8 +2,8 @@
 
 <h1>Options</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>ID</th>
       <th>Idpadre</th>
@@ -30,9 +30,9 @@
         <td><%= option.eshoja %></td>
         <td><%= option.controller %></td>
         <td><%= option.eliminado %></td>
-        <td><%= link_to 'Show', option %></td>
-        <td><%= link_to 'Edit', edit_option_path(option) %></td>
-        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', option, class:"btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_option_path(option), class:"btn btn-primary"  %></td>
+        <td><%= link_to 'Eliminar', option, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Option', new_option_path %>
+<%= link_to 'Crear Nueva Opción', new_option_path ,class:"btn btn-primary" %>

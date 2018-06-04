@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         "estado"        =>TraerValorParametro(u.idestadousuario)
       }
     end
-    render layout: "layout_admin"
+     render layout: "layout_admin"
   end
   def traer    
      @personas=TraerUsuarios(params[:id])  

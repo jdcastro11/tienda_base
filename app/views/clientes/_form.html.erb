@@ -34,9 +34,9 @@
       <%= form.select(:idtipoidentificacion, tipoId,{},{class:"form-control"} ) %>
     </div>
     <div class ="col">
-      <% idGenero = options_from_collection_for_select(@idGenero, "id","valor",cliente.idtipoidentificacion) %>
-      <label for="idtipoidentificacion">Genero:</label>
-      <%= form.select(:idtipoidentificacion, idGenero,{},{class:"form-control"} ) %>
+      <% idGenero = options_from_collection_for_select(@idGenero, "id","valor",cliente.idgenero) %>
+      <label for="idgenero">Genero:</label>
+      <%= form.select(:idgenero, idGenero,{},{class:"form-control"} ) %>
     </div>
     </div>
   </div>  
@@ -70,9 +70,9 @@
       <%= form.select(:idtipocliente, tipoCliente,{},{class:"form-control"} ) %>
     </div>
     <div class ="col">
-      <% catcliente = options_from_collection_for_select(@catcliente, "id","valor",cliente.idtipocliente) %>
-      <label for="idtipocliente" >Tipo Cliente:</label>
-      <%= form.select(:idtipocliente, catcliente,{},{class:"form-control"} ) %>
+      <% catcliente = options_from_collection_for_select(@catcliente, "id","valor",cliente.idcategoriacliente) %>
+      <label for="idcategoriacliente" >Tipo Cliente:</label>
+      <%= form.select(:idcategoriacliente, catcliente,{},{class:"form-control"} ) %>
     </div>
   </div>
   </div>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/admin', to:'admin#admin'
   get '/noacceso', to:'inicio#noacceso'
   get '/logout', to:'seguridad#logout'
+  get '/lchangepassword/:id', to: 'users#lchangepassword'
+  post '/users/cambiarcontrasena', to: 'users#cambiarcontrasena'
   resources :parametros
   resources :valorparametros
   post '/users/traer', to:'users#traer'

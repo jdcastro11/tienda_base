@@ -7,12 +7,14 @@
  <p id="notice"><%= notice %></p>
 
  <table class="table table-striped">
+	<thead class="thead-dark">
   	<tr >
-  		<td>Id</td>
- 		<td>Atributo</td>
-        <td>Descripción</td>
-        <td>Estado</td>
- 	</tr>
+  		<th>Id</th>
+ 		<th>Atributo</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+	 </tr>
+	<thead>
  	<tr >
  		<td ><%= @parametro.id %></td>
  		<td><%= @parametro.atributo %></td>

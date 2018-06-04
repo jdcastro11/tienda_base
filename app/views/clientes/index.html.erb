@@ -34,9 +34,9 @@
         <td><%= cliente["telefonos"] %></td>
         <td><%= cliente["Tipo_Cliente"] %></td>
         <td><%= cliente["Categoria_Cliente"] %></td>
-        <td><%= link_to 'Ver', cliente %></td>
-        <td><a href="/clientes/<%= cliente['id'] %>/edit">Actualizar</a></td>
-        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href="/clientes/<%= cliente['id'] %>" class='btn btn-info'>Ver</a></td>
+        <td><a href="/clientes/<%= cliente['id'] %>/edit" class="btn btn-primary">Actualizar</a></td>
+        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

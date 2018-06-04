@@ -1,54 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @producto.nombre %>
-</p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @producto.descripcion %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Ref:</strong>
-  <%= @producto.ref %>
-</p>
-
-<p>
-  <strong>Precio:</strong>
-  <%= @producto.precio %>
-</p>
-
-<p>
-  <strong>Idtipoproducto:</strong>
-  <%= @producto.idtipoproducto %>
-</p>
-
-<p>
-  <strong>Idcategoriaproducto:</strong>
-  <%= @producto.idcategoriaproducto %>
-</p>
-
-<p>
-  <strong>Idestadoproducto:</strong>
-  <%= @producto.idestadoproducto %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @producto.stock %>
-</p>
-
-<p>
-  <strong>Imagen:</strong>
-  <%= @producto.imagen %>
-</p>
-
-<p>
-  <strong>Eliminado:</strong>
-  <%= @producto.eliminado %>
-</p>
+  <div class="col-sm-4">
+    <img src="https://image.flaticon.com/icons/svg/202/202381.svg" alt="..." class="img-thumbnail">
+  </div>
+  <div class="col-sm-4 p-3">
+    <p>
+      <strong>Nombre:</strong>
+      <%= @producto.nombre %>
+    </p>
+    
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @producto.descripcion %>
+    </p>
+    
+    <p>
+      <strong>Ref:</strong>
+      <%= @producto.ref %>
+    </p>
+    
+    <p>
+      <strong>Precio:</strong>
+      <%= @producto.precio %>
+    </p>
+    
+    <p>
+      <strong>Idtipoproducto:</strong>
+      <%= @producto.idtipoproducto %>
+    </p>
+    </div>
+    <div class="col-sm-4 p-3">
+    <p>
+      <strong>Idcategoriaproducto:</strong>
+      <%= @producto.idcategoriaproducto %>
+    </p>
+    
+    <p>
+      <strong>Idestadoproducto:</strong>
+      <%= @producto.idestadoproducto %>
+    </p>
+    
+    <p>
+      <strong>Stock:</strong>
+      <%= @producto.stock %>
+    </p>
+    
+    <p>
+      <strong>Imagen:</strong>
+      <%= @producto.imagen %>
+    </p>
+    
+    <p>
+      <strong>Eliminado:</strong>
+      <%= @producto.eliminado %>
+    </p>
+  </div>
+</div>
 <%  if @operaciones.include?("Modificar") %>
    <%= link_to 'Editar', edit_producto_path(@producto),class:"btn btn-success btn-sm" %> 
 <% end %>

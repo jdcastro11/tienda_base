@@ -6,7 +6,7 @@ class BaseController < ApplicationController
    
      private  
      def auth!
-        excepciones=['productos1','mostrarCarrito','agregarCarrito','eliminarCarrito']
+        excepciones=['productos1','mostrarCarrito','agregarCarrito','eliminarCarrito', 'registrocliente']
        
         uri= request.original_url
         controlador=getControlador(uri)

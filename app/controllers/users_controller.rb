@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
   skip_before_action:verify_authenticity_token #desactiva el control de autencicidad del la solicitud
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2018 a las 14:00:40
+-- Tiempo de generación: 23-05-2018 a las 14:49:50
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -42,6 +42,18 @@ CREATE TABLE `ar_internal_metadata` (
 
 INSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES
 ('environment', 'development', '2018-05-02 11:06:58', '2018-05-02 11:06:58');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carritos`
+--
+
+CREATE TABLE `carritos` (
+  `id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -212,9 +224,9 @@ INSERT INTO `parametros` (`id`, `atributo`, `descripcion`, `estadoparametro`, `e
 CREATE TABLE `productos` (
   `id` bigint(20) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `descipcion` varchar(300) DEFAULT NULL,
+  `descripcion` varchar(300) DEFAULT NULL,
   `ref` varchar(50) DEFAULT NULL,
-  `precio` decimal(6,2) DEFAULT NULL,
+  `precio` decimal(15,2) DEFAULT NULL,
   `idtipoproducto` int(11) DEFAULT NULL,
   `idcategoriaproducto` int(11) DEFAULT NULL,
   `idestadoproducto` int(11) DEFAULT NULL,
@@ -224,6 +236,14 @@ CREATE TABLE `productos` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `ref`, `precio`, `idtipoproducto`, `idcategoriaproducto`, `idestadoproducto`, `stock`, `imagen`, `eliminado`, `created_at`, `updated_at`) VALUES
+(1, 'Board P5', 'AMD Especial', '123BD', '350000.00', 5, 6, 21, 10, 'board.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Diadema Hight Sound', 'Wireless ', '33333', '67000.00', 8, 23, 21, 15, 'diademas.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -277,7 +297,8 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20180508034458'),
 ('20180514134314'),
 ('20180515014041'),
-('20180516050022');
+('20180516050022'),
+('20180516132409');
 
 -- --------------------------------------------------------
 
@@ -382,6 +403,12 @@ ALTER TABLE `ar_internal_metadata`
   ADD PRIMARY KEY (`key`);
 
 --
+-- Indices de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -458,6 +485,12 @@ ALTER TABLE `valorparametros`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -497,7 +530,7 @@ ALTER TABLE `parametros`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `role_option_operations`

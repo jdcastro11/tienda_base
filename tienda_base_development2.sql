@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2018 a las 14:00:40
+-- Tiempo de generación: 30-05-2018 a las 14:14:42
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `ar_internal_metadata`
 --
 
-CREATE TABLE `ar_internal_metadata` (
+CREATE TABLE `ar_internal_metadata` IF NOT EXISTS(
   `key` varchar(255) NOT NULL,
   `value` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -42,6 +42,18 @@ CREATE TABLE `ar_internal_metadata` (
 
 INSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES
 ('environment', 'development', '2018-05-02 11:06:58', '2018-05-02 11:06:58');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carritos`
+--
+
+CREATE TABLE `carritos` (
+  `id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -73,7 +85,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombres`, `apellidos`, `identificacion`, `idtipoidentificacion`, `razonSocial`, `correo`, `direccion`, `telefonos`, `idtipocliente`, `idcategoriacliente`, `idestado`, `idgenero`, `eliminado`, `created_at`, `updated_at`) VALUES
-(1, 'Pedro ', 'Paramo', '7235250', 31, '', 'pparamo@yahoo.com', 'Cra 54 #64-97', '3858152', 33, 37, 29, 40, 0, '2018-05-15 18:06:08', '2018-05-15 18:06:08');
+(1, 'Pedro ', 'Paramo', '7235250', 31, '', 'pparamo@yahoo.com', 'Cra 54 #64-97', '3858152', 33, 37, 29, 40, 0, '2018-05-15 18:06:08', '2018-05-15 18:06:08'),
+(2, 'Maria ', 'Torres', '32734345', 31, '', 'mtorres@gmail.com', 'Cra  19C #47B-53', '3345678', 33, 37, 29, 41, 0, '2018-05-29 00:45:38', '2018-05-29 00:45:38');
 
 -- --------------------------------------------------------
 
@@ -117,6 +130,13 @@ CREATE TABLE `empleados` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`id`, `identificacion`, `idtipoidentificacion`, `nombres`, `apellidos`, `telefonos`, `correo`, `direccion`, `idgenero`, `idcargo`, `idarea`, `idestadoemp`, `eliminado`, `created_at`, `updated_at`) VALUES
+(1, '72135240', 31, 'Hernan ', 'Pajaro ', '300345678', 'hpajaro@yahoo.com', 'Cra 54 #64-97', 40, 47, 52, 50, 0, '2018-05-28 14:07:07', '2018-05-28 14:07:07');
 
 -- --------------------------------------------------------
 
@@ -163,10 +183,13 @@ INSERT INTO `options` (`id`, `idpadre`, `opcion`, `url`, `estadoopcion`, `orden`
 (1, NULL, 'Tareas Basicas ', NULL, 'A', '01', 0, NULL, 0),
 (2, NULL, 'Configuracion', NULL, 'A', '02', 0, NULL, 0),
 (3, 1, 'Clientes', NULL, 'A', '01', 1, 'cliente', 0),
-(4, 1, 'Productos', NULL, 'A', '02', 1, 'producto', 0),
+(4, 1, 'Productos (Listar)', '', 'A', '02', 1, 'listarProductos', 0),
 (5, 1, 'Facturas', NULL, 'A', '03', 1, 'factura', 0),
-(6, 1, 'Empleados', NULL, 'A', '05', 1, 'empleado', 0),
-(7, 2, 'Parametros', NULL, 'A', '01', 1, 'parametros', 0);
+(6, 1, 'Empleados', '', 'A', '05', 1, 'empleados', 0),
+(7, 2, 'Parametros', NULL, 'A', '01', 1, 'parametros', 0),
+(8, NULL, 'Admin', '', 'A', '09', 1, 'admin', 0),
+(9, NULL, 'Productos (Editar)', '', 'A', '10', 1, 'productos', 0),
+(10, NULL, 'Productos(mostrar carrito)', '', 'A', '11', 1, 'mostrarCarrito', 0);
 
 -- --------------------------------------------------------
 
@@ -201,7 +224,10 @@ INSERT INTO `parametros` (`id`, `atributo`, `descripcion`, `estadoparametro`, `e
 (10, 'idtipoentidad', 'Tipo de entidad ', 'A', 0, '2018-05-15 03:25:32', '2018-05-15 03:25:32'),
 (11, 'idgenero', 'Genero ', 'A', 0, '2018-05-15 17:47:36', '2018-05-15 17:47:36'),
 (12, 'idCatefgoriaCliente', 'Categoría Cliente', 'A', 0, '2018-05-15 17:55:11', '2018-05-15 17:55:11'),
-(13, 'idoperacion', 'Operaciones', 'A', 0, '2018-05-16 04:36:53', '2018-05-16 04:36:53');
+(13, 'idoperacion', 'Operaciones', 'A', 0, '2018-05-16 04:36:53', '2018-05-16 04:36:53'),
+(14, 'idcargo', 'Cargo del EMpleado', 'A', 0, '2018-05-26 13:09:20', '2018-05-26 13:09:20'),
+(15, 'idestadoemp', 'Estado Empleado', 'A', 0, '2018-05-28 12:41:46', '2018-05-28 12:41:46'),
+(16, 'idarea', 'Area del Empleado', 'A', 0, '2018-05-28 14:05:35', '2018-05-28 14:05:35');
 
 -- --------------------------------------------------------
 
@@ -212,9 +238,9 @@ INSERT INTO `parametros` (`id`, `atributo`, `descripcion`, `estadoparametro`, `e
 CREATE TABLE `productos` (
   `id` bigint(20) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `descipcion` varchar(300) DEFAULT NULL,
+  `descripcion` varchar(300) DEFAULT NULL,
   `ref` varchar(50) DEFAULT NULL,
-  `precio` decimal(6,2) DEFAULT NULL,
+  `precio` decimal(15,2) DEFAULT NULL,
   `idtipoproducto` int(11) DEFAULT NULL,
   `idcategoriaproducto` int(11) DEFAULT NULL,
   `idestadoproducto` int(11) DEFAULT NULL,
@@ -224,6 +250,16 @@ CREATE TABLE `productos` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `ref`, `precio`, `idtipoproducto`, `idcategoriaproducto`, `idestadoproducto`, `stock`, `imagen`, `eliminado`, `created_at`, `updated_at`) VALUES
+(1, 'Board P5', 'AMD Especial', '123BD', '350000.00', 5, 6, 21, 10, 'board.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Diadema Hight Sound', 'Wireless ', '33333', '67000.00', 8, 23, 21, 15, 'diademas.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Monitor 19 Pulg', 'LCD', 'RV55K', '380000.00', 8, 14, 21, 12, 'monitor.jpg', 0, '2018-05-25 00:41:44', '2018-05-25 01:30:24'),
+(4, 'Mouse Microsoft', 'Wireless', 'M2345', '45000.00', 8, 19, 21, 25, 'mouse.jpg', 0, '2018-05-25 02:12:02', '2018-05-25 02:15:26');
 
 -- --------------------------------------------------------
 
@@ -248,7 +284,17 @@ CREATE TABLE `role_option_operations` (
 
 INSERT INTO `role_option_operations` (`id`, `idrol`, `idoperacion`, `estadorolop`, `eliminado`, `created_at`, `updated_at`, `options_id`) VALUES
 (1, 26, 42, 'A', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 7),
-(2, 26, 43, 'A', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 7);
+(2, 26, 43, 'A', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 7),
+(3, 26, 42, 'A', 0, '2018-05-29 20:07:31', '2018-05-30 00:21:16', 4),
+(4, 26, 43, 'A', 0, '2018-05-29 22:31:34', '2018-05-30 09:25:46', 4),
+(5, 26, 44, 'A', 0, '2018-05-29 22:32:29', '2018-05-30 09:20:59', 9),
+(6, 26, 46, 'A', 0, '2018-05-29 22:33:25', '2018-05-29 22:33:25', 4),
+(7, 26, 42, 'A', 0, '2018-05-30 03:58:57', '2018-05-30 03:58:57', 8),
+(8, 26, 42, 'A', 0, '2018-05-30 04:19:15', '2018-05-30 04:19:15', 9),
+(9, 26, 46, 'A', 0, '2018-05-30 09:20:15', '2018-05-30 09:26:01', 9),
+(10, 26, 42, 'A', 0, '2018-05-30 09:34:10', '2018-05-30 09:34:10', 10),
+(11, 28, 42, 'A', 0, '2018-05-30 09:36:30', '2018-05-30 09:36:30', 10),
+(12, 26, 42, 'A', 0, '2018-05-30 09:55:55', '2018-05-30 09:55:55', 6);
 
 -- --------------------------------------------------------
 
@@ -277,7 +323,8 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20180508034458'),
 ('20180514134314'),
 ('20180515014041'),
-('20180516050022');
+('20180516050022'),
+('20180516132409');
 
 -- --------------------------------------------------------
 
@@ -303,7 +350,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `identidad`, `idtipoentidad`, `idestadousuario`, `idrol`, `eliminado`, `created_at`, `updated_at`) VALUES
-(1, 'hpajaro', '81dc9bdb52d04dc20036dbd8313ed055', 1, 36, 24, 26, 0, '2018-05-15 18:36:15', '2018-05-15 18:36:15');
+(1, 'hpajaro', '81dc9bdb52d04dc20036dbd8313ed055', 1, 36, 24, 26, 0, '2018-05-15 18:36:15', '2018-05-28 15:22:17'),
+(2, 'pparamo', '827ccb0eea8a706c4c34a16891f84e7b', 1, 35, 24, 28, 0, '0000-00-00 00:00:00', '2018-05-29 01:58:00'),
+(3, 'mtorres', '81dc9bdb52d04dc20036dbd8313ed055', 2, 35, 24, 28, 0, '2018-05-29 01:22:06', '2018-05-29 01:22:06');
 
 -- --------------------------------------------------------
 
@@ -359,7 +408,7 @@ INSERT INTO `valorparametros` (`id`, `valor`, `estadovalorparametro`, `orden`, `
 (33, 'Persona', 'A', '01', 0, 5, '0000-00-00 00:00:00', '2018-05-15 17:53:58', NULL),
 (34, 'Empresa', 'A', '02', 0, 5, '0000-00-00 00:00:00', '2018-05-15 17:53:40', NULL),
 (35, 'Cliente', 'A', '01', 0, 10, '2018-05-15 11:19:26', '2018-05-15 11:43:43', NULL),
-(36, 'Empelado', 'A', '02', 0, 10, '2018-05-15 11:56:38', '2018-05-15 11:56:38', NULL),
+(36, 'Empleado', 'A', '02', 0, 10, '2018-05-15 11:56:38', '2018-05-28 12:24:33', NULL),
 (37, 'Bronce', 'A', '01', 0, 12, '2018-05-15 18:01:06', '2018-05-15 18:01:06', NULL),
 (38, 'Plata', 'A', '02', 0, 12, '2018-05-15 18:01:27', '2018-05-15 18:01:27', NULL),
 (39, 'Oro', 'A', '03', 0, 12, '2018-05-15 18:01:44', '2018-05-15 18:01:44', NULL),
@@ -369,7 +418,16 @@ INSERT INTO `valorparametros` (`id`, `valor`, `estadovalorparametro`, `orden`, `
 (43, 'Crear', 'A', '02', 0, 13, '2018-05-16 04:38:36', '2018-05-16 04:38:36', NULL),
 (44, 'Modificar', 'A', '03', 0, 13, '2018-05-16 04:39:02', '2018-05-16 04:39:02', NULL),
 (45, 'Borrar', 'A', '05', 0, 13, '2018-05-16 04:39:23', '2018-05-16 04:39:23', NULL),
-(46, 'Eliminar', 'A', '06', 0, 13, '2018-05-16 04:39:46', '2018-05-16 04:39:46', NULL);
+(46, 'Eliminar', 'A', '06', 0, 13, '2018-05-16 04:39:46', '2018-05-16 04:39:46', NULL),
+(47, 'Administrador de Sistema', 'A', '01', 0, 14, '2018-05-26 13:09:53', '2018-05-27 23:14:51', NULL),
+(48, 'Operador', 'A', '02', 0, 14, '2018-05-26 13:10:41', '2018-05-26 13:10:41', NULL),
+(49, 'Analista de Mercadeo', 'A', '03', 0, 14, '2018-05-26 13:11:08', '2018-05-27 23:09:16', NULL),
+(50, 'Activo', 'A', '01', 0, 15, '2018-05-28 12:42:06', '2018-05-28 12:42:06', NULL),
+(51, 'Inactivo', 'A', '02', 0, 15, '2018-05-28 12:42:17', '2018-05-28 12:42:17', NULL),
+(52, 'Sistemas', 'A', '02', 0, 16, '2018-05-28 14:05:49', '2018-05-28 14:05:49', NULL),
+(53, 'Ventas', 'A', '01', 0, 16, '2018-05-28 14:05:59', '2018-05-28 14:05:59', NULL),
+(54, 'Administrativa', 'A', '04', 0, 16, '2018-05-28 14:06:19', '2018-05-28 14:06:19', NULL),
+(55, 'Mercadeo', 'A', '05', 0, 16, '2018-05-28 14:06:40', '2018-05-28 14:06:40', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -380,6 +438,12 @@ INSERT INTO `valorparametros` (`id`, `valor`, `estadovalorparametro`, `orden`, `
 --
 ALTER TABLE `ar_internal_metadata`
   ADD PRIMARY KEY (`key`);
+
+--
+-- Indices de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `clientes`
@@ -458,10 +522,16 @@ ALTER TABLE `valorparametros`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `detfacturas`
@@ -473,7 +543,7 @@ ALTER TABLE `detfacturas`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `facturas`
@@ -485,37 +555,37 @@ ALTER TABLE `facturas`
 -- AUTO_INCREMENT de la tabla `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `parametros`
 --
 ALTER TABLE `parametros`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `role_option_operations`
 --
 ALTER TABLE `role_option_operations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `valorparametros`
 --
 ALTER TABLE `valorparametros`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Restricciones para tablas volcadas

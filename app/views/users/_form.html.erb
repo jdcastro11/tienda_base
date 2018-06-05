@@ -13,12 +13,12 @@
 
   <div class="form-group">
       <label for="usuario" >Usuario:</label>
-      <%= form.text_field :usuario, id: :user_usuario, class:"form-control" , :required=>true %>
+      <%= form.text_field :usuario, id: :user_usuario, class:"form-control" %>
   </div>
 
   <div class="form-group">
       <label for="password" >Password:</label>
-      <%= form.password_field :password, id: :user_password, class:"form-control", :required=>true %>
+      <%= form.password_field :password, id: :user_password, class:"form-control" %>
   </div>
 
   <div class="form-group">
@@ -26,18 +26,23 @@
         <div class="col">
           <% tipos = options_from_collection_for_select(@tipos, "id","valor",user.idtipoentidad) %>
           <label for="idtipoentidad" >Tipo:</label>
-          <%= form.select(:idtipoentidad, tipos,{},{id:"identidadId", class:"form-control" ,onchange:"traerUsuarios()"})  %>
+          <%= form.select(:idtipoentidad, tipos,{},{id:"identidadId", class:"form-control",onchange:"traerUsuarios()"}) %>
         </div>
-         
-        <div class="col">
+        <!--<div class="col">
+          <label for="identidad" >Nombre:</label>
+          <select name="user[identidad]" id="user_identidad" class="form-control">
+          </select>
           <% roles = options_from_collection_for_select(@roles, "id","valor",user.idrol) %>
+        </div>-->
+
+        <div class="col">
           <label for="idrol" >Rol:</label>
           <%= form.select(:idrol, roles,{},{class:"form-control"} ) %>
         </div>
         <div class="col">
           <% estados = options_from_collection_for_select(@estados, "id","valor",user.idestadousuario) %>
           <label for="idestadousuario" >Estado:</label>
-          <%= form.select(:idestadousuario, estados,{},{class:"form-control"}) %>
+          <%= form.select(:idestadousuario, estados,{},{class:"form-control"} ) %>
         </div>
       </div>
   </div>

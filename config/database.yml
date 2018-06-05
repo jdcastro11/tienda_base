@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: yet2ksn
+  password: 
   host: localhost
 
 development:
@@ -48,5 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  database: db/production.sqlite3
+  adapter: postgres
+  database: tienda_base_production
+  username: tienda_base
+  password: <%= ENV['TIENDA_BASE_DATABASE_PASSWORD'] %>

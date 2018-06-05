@@ -30,10 +30,10 @@ class SeguridadController < ApplicationController
   def logout
         reset_session
         session[:id] =""
-         session[:usuario]=""
+        session[:usuario]=""
         session[:idusuario]=""
         session[:idrol]=""	  
-         redirect_to "/productos"
+        redirect_to "/productos1"
   end
  
  end

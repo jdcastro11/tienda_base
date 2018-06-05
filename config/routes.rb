@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/auth', to:'seguridad#autenticar'
   get '/login', to:'seguridad#login'
   get '/registrocliente', to: 'clientes#new'
-  get '/registrousuario', to: 'users#new'
+  get '/registrousuario', to: 'users#index'
   get '/editarusuario', to: 'clientes#edit'
   get '/inicio', to:'inicio#index'
   get '/admin', to:'admin#admin'
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get '/mostrarCarrito', to:'productos#mostrarCarrito'
   get '/eliminarCarrito', to:'productos#eliminarDelCarrito'
   get '/listarProductos', to:'productos#listar'
+  get '/permisos', to:'role_option_operations#index'
   resources :productos
   resources :empleados
   resources :role_option_operations

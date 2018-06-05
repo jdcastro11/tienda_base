@@ -11,56 +11,47 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col">
-      <%= form.label :idpadre %>
-      <%= form.number_field :idpadre, id: :option_idpadre , class:'form-control',required:''%>
-      </div>
-      <div class="col">
-        <%= form.label :opcion %>
-        <%= form.text_field :opcion, id: :option_opcion, class:'form-control',required:'' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <%= form.label :url %>
-        <%= form.text_field :url, id: :option_url, class:'form-control',required:'' %>
-      </div>
-      <div class="col">
-        <%= form.label :Estadoopcion %>
-        <%= form.text_field :estadoopcion, id: :option_estadoopcion, class:'form-control',required:'' %>
-      </div>
-      <div class="col">
-        <%= form.label :orden %>
-        <%= form.text_field :orden, id: :option_orden, class:'form-control',required:'' %>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col">
-        <%= form.label :controller %>
-        <%= form.text_field :controller, id: :option_controller, class:'form-control',required:'' %>
-      </div>    
-    </div>
+  <div class="field">
+    <%= form.label :idpadre %>
+    <%= form.number_field :idpadre, id: :option_idpadre %>
   </div>
-        
-  <div class="form-group">
+
+  <div class="field">
+    <%= form.label :opcion %>
+    <%= form.text_field :opcion, id: :option_opcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :option_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estadoopcion %>
+    <%= form.text_field :estadoopcion, id: :option_estadoopcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orden %>
+    <%= form.text_field :orden, id: :option_orden %>
+  </div>
+
+  <div class="field">
     <%= form.label :eshoja %>
-    <%= form.check_box :eshoja, id: :option_eshoja,required:'' %>
+    <%= form.check_box :eshoja, id: :option_eshoja %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
+    <%= form.label :controller %>
+    <%= form.text_field :controller, id: :option_controller %>
+  </div>
+
+  <div class="field">
     <%= form.label :eliminado %>
-    <%= form.check_box :eliminado, id: :option_eliminado,required:'' %>
-  </div>
-
-  <div class="form-group">
+    <%= form.check_box :eliminado, id: :option_eliminado %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Guardar" ,class:'btn btn-success' %>
-    <% end %>
+    <%= form.submit %>
   </div>
+<% end %>

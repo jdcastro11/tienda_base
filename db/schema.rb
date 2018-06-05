@@ -100,6 +100,21 @@ ActiveRecord::Schema.define(version: 20180516132409) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "productos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nombre", limit: 100
+    t.string "descipcion", limit: 300
+    t.string "ref", limit: 50
+    t.decimal "precio", precision: 6, scale: 2
+    t.integer "idtipoproducto"
+    t.integer "idcategoriaproducto"
+    t.integer "idestadoproducto"
+    t.integer "stock", default: 0
+    t.string "imagen", limit: 100
+    t.boolean "eliminado", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "role_option_operations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "idrol"
     t.integer "idoperacion"

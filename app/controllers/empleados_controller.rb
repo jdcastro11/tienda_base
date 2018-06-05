@@ -5,6 +5,7 @@ class EmpleadosController < BaseController
   # GET /empleados.json
   def index
     @empleados = Empleado.all
+    render layout: "layout_admin"
   end
 
   # GET /empleados/1
@@ -15,10 +16,12 @@ class EmpleadosController < BaseController
   # GET /empleados/new
   def new
     @empleado = Empleado.new
+    render layout: "layout_admin"
   end
 
   # GET /empleados/1/edit
   def edit
+    render layout: "layout_admin"
   end
 
   # POST /empleados

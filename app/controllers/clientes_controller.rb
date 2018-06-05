@@ -22,7 +22,6 @@ class ClientesController < BaseController
         "Categoria_Cliente"   =>TraerValorParametro(c.idcategoriacliente)
       }
     end
-    render layout: "layout_admin"
   end
 
   # GET /clientes/1
@@ -44,7 +43,6 @@ class ClientesController < BaseController
         "Categoria_Cliente"   =>TraerValorParametro(c.idcategoriacliente)
       }
     end
-    render layout: "layout_admin"
   end
 
   # GET /clientes/new

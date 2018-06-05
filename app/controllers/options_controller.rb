@@ -1,4 +1,4 @@
-class OptionsController < BaseController
+class OptionsController < ApplicationController
   before_action :set_option, only: [:show, :edit, :update, :destroy]
 
   # GET /options
@@ -7,22 +7,19 @@ class OptionsController < BaseController
     @options = Option.all
     render layout: "layout_admin"
   end
-  
+
   # GET /options/1
   # GET /options/1.json
   def show
-    render layout: "layout_admin"
   end
 
   # GET /options/new
   def new
     @option = Option.new
-    render layout: "layout_admin"
   end
 
   # GET /options/1/edit
   def edit
-    render layout: "layout_admin"
   end
 
   # POST /options
@@ -39,7 +36,6 @@ class OptionsController < BaseController
         format.json { render json: @option.errors, status: :unprocessable_entity }
       end
     end
-    render layout: "layout_admin"
   end
 
   # PATCH/PUT /options/1
@@ -54,7 +50,6 @@ class OptionsController < BaseController
         format.json { render json: @option.errors, status: :unprocessable_entity }
       end
     end
-    render layout: "layout_admin"
   end
 
   # DELETE /options/1
@@ -65,7 +60,6 @@ class OptionsController < BaseController
       format.html { redirect_to options_url, notice: 'Option was successfully destroyed.' }
       format.json { head :no_content }
     end
-    render layout: "layout_admin"
   end
 
   private

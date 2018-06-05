@@ -1,4 +1,5 @@
 class UsersController < BaseController
+
   skip_before_action:verify_authenticity_token #desactiva el control de autencicidad del la solicitud
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
@@ -19,7 +20,7 @@ class UsersController < BaseController
         "estado"        =>TraerValorParametro(u.idestadousuario)
       }
     end
-     render layout: "layout_admin"
+    render layout: "layout_admin"
   end
   def traer    
      @personas=TraerUsuarios(params[:id])  

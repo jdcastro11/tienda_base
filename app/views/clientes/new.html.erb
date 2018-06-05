@@ -1,7 +1,5 @@
-<div style="width:70%; margin:auto">
-    <h1>Registrate!</h1>
-    <hr>
-    <%= render 'form', cliente: @cliente %>
- </div>
+<h1>New Cliente</h1>
 
-<%= link_to 'Back', clientes_path, class:'btn btn-dark' %>
+<%= render 'form', cliente: @cliente %>
+
+<%= link_to 'Back', clientes_path %>

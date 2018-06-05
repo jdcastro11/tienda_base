@@ -1,4 +1,4 @@
-class RoleOptionOperationsController < ApplicationController
+class RoleOptionOperationsController < BaseController
   before_action :set_role_option_operation, only: [:show, :edit, :update, :destroy]
   
   # GET /role_option_operations
